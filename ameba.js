@@ -175,7 +175,7 @@ function Ship() {
     this.rotationThrust = 0;
 
     this.img = document.createElement("img");
-    this.img.src = "ship1.png";
+    this.img.src = "ship5.png";
     this.img.style.position = "absolute";
     this.img.style.left = Math.round(this.x) + "px";
     this.img.style.top = Math.round(this.y) + "px";
