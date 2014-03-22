@@ -81,7 +81,7 @@ function Ameba(x, y, level) {
     this.img.style.position = "absolute";
     this.img.style.left = Math.round(this.x) + "px";
     this.img.style.top = Math.round(this.y) + "px";
-    this.img.src = "ameba" + this.level + "_" + this.level + ".png";
+    this.img.src = "images/ameba" + this.level + "_" + this.level + ".png";
     document.getElementById("game").appendChild(this.img);
 }
 
@@ -100,7 +100,7 @@ Ameba.prototype.move = function() {
     if (this.img !== null) {
         this.img.style.left = Math.round(this.x) + "px";
         this.img.style.top = Math.round(this.y) + "px";
-        this.img.src = "ameba" + this.level + "_" +
+        this.img.src = "images/ameba" + this.level + "_" +
             (1 + Math.abs(10 - Math.floor(this.frame))) + ".png";
     }
 }
@@ -133,7 +133,7 @@ function Ammo(x, y, dirX, dirY) {
     this.img.style.position = "absolute";
     this.img.style.left = Math.round(this.x) + "px";
     this.img.style.top = Math.round(this.y) + "px";
-    this.img.src = "ammo.png";
+    this.img.src = "images/ammo.png";
     document.getElementById("game").appendChild(this.img);
 }
 
@@ -175,7 +175,7 @@ function Ship() {
     this.rotationThrust = 0;
 
     this.img = document.createElement("img");
-    this.img.src = "ship1.png";
+    this.img.src = "images/ship1.png";
     this.img.style.position = "absolute";
     this.img.style.left = Math.round(this.x) + "px";
     this.img.style.top = Math.round(this.y) + "px";
@@ -213,7 +213,7 @@ Ship.prototype.move = function() {
     if (this.y > SCREEN_HEIGHT) this.y = -AMEBA3_SIZE;
     if (this.y < -AMEBA3_SIZE) this.y = SCREEN_HEIGHT;
 
-    this.img.src = "ship" + (currentShip + 1) + ".png";
+    this.img.src = "images/ship" + (currentShip + 1) + ".png";
     this.img.style.left = Math.round(this.x) + "px";
     this.img.style.top = Math.round(this.y) + "px";
 }
@@ -371,13 +371,23 @@ function keyup(e) {
 
 
 var preload = [];
-for (var i = 0; i < 16 + 10 + 10 + 10 + 2; ++i) preload.push(new Image());
-for (var i = 1; i <= 16; ++i) preload[i - 1].src = "ship" + i + ".png";
-for (var i = 1; i <= 10; ++i) preload[16 + i - 1].src = "ameba1_" + i + ".png";
-for (var i = 1; i <= 10; ++i) preload[26 + i - 1].src = "ameba2_" + i + ".png";
-for (var i = 1; i <= 10; ++i) preload[36 + i - 1].src = "ameba3_" + i + ".png";
-preload[46].src = "ammo.png";
-preload[47].src = "background.jpg";
+for (var i = 0; i < 16 + 10 + 10 + 10 + 2; ++i) {
+    preload.push(new Image());
+}
+for (var i = 1; i <= 16; ++i) {
+    preload[i - 1].src = "images/ship" + i + ".png";
+}
+for (var i = 1; i <= 10; ++i) {
+    preload[16 + i - 1].src = "images/ameba1_" + i + ".png";
+}
+for (var i = 1; i <= 10; ++i) {
+    preload[26 + i - 1].src = "images/ameba2_" + i + ".png";
+}
+for (var i = 1; i <= 10; ++i) {
+    preload[36 + i - 1].src = "images/ameba3_" + i + ".png";
+}
+preload[46].src = "images/ammo.png";
+preload[47].src = "images/background.jpg";
 
 function init() {
     ship = new Ship();
